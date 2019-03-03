@@ -34,7 +34,7 @@ foreach ($app in $applicationListRemove) {
 
 rename-computer -NewName MORENO
 #add-computer -WorkGroupName ACTSIS -DomainName actsis.com -Credentials ACTSIS\daniel.quiroz
-Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList" -Name ProfilesDirectory -Value D:\usuarios -type EXPAND
+Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList" -Name ProfilesDirectory -Value G:\usuarios -type EXPAND
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name LaunchTo -Type DWord -Value 1
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name HideFileExt  -Value 0 -Type DWORD
 Set-ItemProperty -Path "HKCU:\Software\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name Hidden  -Value 1 -Type DWORD
