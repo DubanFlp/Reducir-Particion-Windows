@@ -32,7 +32,7 @@ foreach ($app in $applicationListRemove) {
 #     Configuracion de equipo.     #
 ####################################
 
-rename-computer -NewName MORENO
+#rename-computer -NewName MORENO
 #add-computer -WorkGroupName ACTSIS -DomainName actsis.com -Credentials ACTSIS\daniel.quiroz
 Set-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\ProfileList" -Name ProfilesDirectory -Value G:\usuarios -type EXPAND
 Set-ItemProperty -Path "HKCU:\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced" -Name LaunchTo -Type DWord -Value 1
