@@ -1,0 +1,18 @@
+@ECHO OFF
+SET /p size=Tamanio a particionar en GB:
+SET /p letter=Ingrese letra para la nueva particion:
+SET /a sizeReal=(%size%*1024)+5
+SET parameters=C:\parameters.txt
+LABEL C:Windows
+ECHO list volume > %parameters%
+REM Busca la etiqueta windows para seleccionar el volumen a reducir.
+FOR /F "tokens=2,3,5" %%a IN ('DISKPART /S %parameters% ^| FIND /I "Windows"') DO SET volSelect=%%a
+ECHO SELECT DISK 0 > %parameters%
+ECHO SELECT VOLUME %volSelect% >> %parameters%
+ECHO SHRINK DESIRED=%sizeReal% >> %parameters%
+ECHO CREATE PARTITION PRIMARY SIZE=%sizeReal% >> %parameters%
+ECHO FORMAT FS=NTFS >> %parameters%
+ECHO ASSIGN LETTER %letter% >> %parameters%
+DISKPART /S %parameters%
+LABEL %letter%:Datos
+DEL /S /Q %parameters%
